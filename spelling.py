@@ -31,13 +31,36 @@ def letter_swap(word):
     return swaps
 
 
+def duplicate_letters(word):
+    dups = []
+    for char in word:
+        new = word.replace(char, char * 2)
+        if new not in dups:
+            dups.append(new)
+    for char in word:
+        if char * 3 in word:
+            new = word.replace(char * 3, char * 2)
+            if new not in dups:
+                dups.append(new)
+    for char in word:
+        if char * 2 in word:
+            new = word.replace(char * 2, char)
+            if new not in dups:
+                dups.append(new)
+    return dups
+
+
+def all_mistakes(word):
+    all_errors = set(transposes(word) + letter_swap(word) + duplicate_letters(word))
+    return all_errors
+
+
 def multiple_mistakes(word):
-    mm = []
-    first = transposes(word)
-    for word in first:
-        words = letter_swap(word)
-        mm.extend(words)
-    return real_word(mm)
+    lst = [total for sub_total in all_mistakes(word) for total in all_mistakes(sub_total)]
+    print(lst)
+    return real_word(lst)
 
 
-print(multiple_mistakes('vefalut'))
+print(multiple_mistakes('ballerinna'))
+
+
