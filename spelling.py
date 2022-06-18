@@ -3,11 +3,10 @@ word_list = words.words()
 
 
 def real_word(words):
-    possible_matches = []
-    for word in words:
-        if word in word_list:
-            possible_matches.append(word)
-    return possible_matches
+    unique_words = set(words)
+    known_words = set(word_list)
+    common = set(unique_words).intersection(known_words)
+    return list(common)
 
 
 def transposes(word):
@@ -31,6 +30,26 @@ def letter_swap(word):
     return swaps
 
 
+def add_letter(word):
+    add = []
+    letters = 'abcdefghijklmnopqrstuvwxyz'
+    for char in word:
+        for l in letters:
+            new = word.replace(char, char + l)
+            if new not in add:
+                add.append(new)
+    return add
+
+
+def del_letter(word):
+    deleted = []
+    for char in word:
+        new = word.replace(char, '')
+        if new not in deleted:
+            deleted.append(new)
+    return deleted
+
+
 def duplicate_letters(word):
     dups = []
     for char in word:
@@ -51,7 +70,7 @@ def duplicate_letters(word):
 
 
 def all_mistakes(word):
-    all_errors = set(transposes(word) + letter_swap(word) + duplicate_letters(word))
+    all_errors = set(transposes(word) + letter_swap(word) + add_letter(word) + del_letter(word) + duplicate_letters(word))
     return all_errors
 
 
@@ -60,7 +79,5 @@ def multiple_mistakes(word):
     print(lst)
     return real_word(lst)
 
-
-print(multiple_mistakes('ballerinna'))
 
 
