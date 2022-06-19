@@ -4,16 +4,16 @@
 # Created By: Rachel Holly
 # Created Date: 6/10/2022
 # Last Edited: 6/18/2022
-# Version: 1.06
+# Version: 1.07
 # ----------------------------------------------------------------------------------------------------------------------
 """ This module spell checks a given word by finding different spelling mistakes and cross-checking the corrected words
     with all the words in the English language. Its purpose is to be used with a class to correct misspelled words
      in a txt file."""
 # ----------------------------------------------------------------------------------------------------------------------
 # Import list of all the words in the English language
-from nltk.corpus import words
+import dictionary
 
-word_list = words.words()
+word_list = dictionary.known_words('dictionary.txt')
 
 
 def real_word(words):
@@ -190,4 +190,5 @@ def multiple_mistakes(word):
     # Passes word through the all_mistakes function and then every word in the result through the function again.
     lst = [total for sub_total in all_mistakes(word) for total in all_mistakes(sub_total)]
     return real_word(lst)
+
 

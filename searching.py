@@ -11,12 +11,12 @@ print the resulting list of possible words in a string with the sentence the wor
 # ----------------------------------------------------------------------------------------------------------------------
 import string
 import nltk
-from nltk.corpus import words
 import spelling
+import dictionary
 
 
 class Searching:
-    known_words = words.words()
+    known_words = dictionary.known_words('dictionary.txt')
 
     def __init__(self, file_name):
         self.file = file_name
@@ -34,8 +34,6 @@ class Searching:
                     no_punctuation += word
             self.words = no_punctuation.split()
             self.sentences = nltk.tokenize.sent_tokenize(text)
-            print(self.words)
-            print(self.sentences)
 
     def search_file(self):
         for word in self.words:
@@ -48,7 +46,6 @@ class Searching:
                 new = ''.join(split)
                 if new not in Searching.known_words:
                     self.misspelled_words.append(word)
-        print(self.misspelled_words)
 
     def get_corrections(self):
         for word in self.misspelled_words:
