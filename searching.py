@@ -4,7 +4,7 @@
 # Created By: Rachel Holly
 # Created Date: 6/13/2022
 # Last Edited: 6/18/2022
-# Version: 1.01
+# Version: 1.02
 # ----------------------------------------------------------------------------------------------------------------------
 """ This class takes a filename and sorts through the file to find all the misspelled words in the file. It then will
 print the resulting list of possible words in a string with the sentence the word came from."""

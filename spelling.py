@@ -4,7 +4,7 @@
 # Created By: Rachel Holly
 # Created Date: 6/10/2022
 # Last Edited: 6/18/2022
-# Version: 1.07
+# Version: 1.08
 # ----------------------------------------------------------------------------------------------------------------------
 """ This module spell checks a given word by finding different spelling mistakes and cross-checking the corrected words
     with all the words in the English language. Its purpose is to be used with a class to correct misspelled words
