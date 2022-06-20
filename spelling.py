@@ -190,5 +190,3 @@ def multiple_mistakes(word):
     # Passes word through the all_mistakes function and then every word in the result through the function again.
     lst = [total for sub_total in all_mistakes(word) for total in all_mistakes(sub_total)]
     return real_word(lst)
-
-
