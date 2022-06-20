@@ -5,7 +5,7 @@ This program takes a text file provided by the user and searches for misspelled 
 
 Uploaded files:
 
-dictionary.txt - This text file contains a list of words in the English Language provided by Dr. Phillip M. Feldman. This list contains words with common suffix's like  -s, -ing, and -ed that the nltk library did not. More details about this file can be viewed using the website: https://phillipmfeldman.org/English/spelling%20dictionaries.html
+dictionary.txt - This text file contains a list of words in the English Language provided by Dr. Phillip M. Feldman. This list contains words with common suffix's like  -s, -ing, and -ed that the nltk library does not. More details about this file can be viewed using the website: https://phillipmfeldman.org/English/spelling%20dictionaries.html
 
 dictionary.py - This module contains a single function that creates a set of the words in the dictionary.txt file along with the list of words provided by the nltk library. The nltk library list contains proper nouns that the dictionary.txt file does not. These are used in junction for a more thorough for misspelled words. It is imported in both the spelling module and searching class.
 
