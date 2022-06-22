@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # Created By: Rachel Holly
 # Created Date: 6/13/2022
-# Last Edited: 6/18/2022
+# Last Edited: 6/21/2022
 # Version: 1.04
 # ----------------------------------------------------------------------------------------------------------------------
 """ This class takes a filename and sorts through the file to find all the misspelled words in the file. It then will
