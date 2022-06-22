@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # Created By: Rachel Holly
 # Created Date: 6/15/2022
-# Last Edited: 6/18/2022
+# Last Edited: 6/21/2022
 # Version: 1.03
 # ----------------------------------------------------------------------------------------------------------------------
 """ This is the main.py module for the Spell Checker. This module prompts user input for a file name and works alongside
@@ -97,4 +97,3 @@ while keep_running:
         keep_running = False
 
 print('Thank you for using this Spell Check Program! Have a great day!')
-
