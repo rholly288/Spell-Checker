@@ -3,8 +3,8 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # Created By: Rachel Holly
 # Created Date: 6/13/2022
-# Last Edited: 6/21/2022
-# Version: 1.04
+# Last Edited: 6/22/2022
+# Version: 1.05
 # ----------------------------------------------------------------------------------------------------------------------
 """ This class takes a filename and sorts through the file to find all the misspelled words in the file. It then will
 print the resulting list of possible words in a string with the sentence the word came from."""
@@ -16,8 +16,9 @@ import dictionary
 
 
 class Searching:
-    """ This class can open a file, search for misspelled words in the file, find corrections, edit the file, and
-    return a string of the misspelled words and their corrections."""
+    """ This class can open a file, search for misspelled words in the file,
+    find corrections, edit the file, and return a string of the misspelled words
+    and their corrections."""
 
     # Establish list of known_words from dictionary.py
     known_words = dictionary.known_words('dictionary.txt')
@@ -35,7 +36,8 @@ class Searching:
 
     def open_file(self):
         """
-        Opens the file and strips the text into a list of all the words and a list of all the sentences.
+        Opens the file and strips the text into a list of all the words
+        and a list of all the sentences.
         :return: List of words and sentences from the file
         """
         no_punctuation = ''
@@ -58,8 +60,9 @@ class Searching:
         """
         for word in self.words:
             if word not in Searching.known_words:
-                # Check if a word exists in known_words when the first letter is not capitalized.
-                # Corrects the mistake of adding the first word in a sentence to the misspelled list
+                # Check if a word exists in known_words when the first letter
+                # is not capitalized. Corrects the mistake of adding the first
+                # word in a sentence to the misspelled list
                 split = [char for char in word]
                 num = ord(split[0])
                 capital = num + 32
@@ -109,7 +112,14 @@ class Searching:
             for word in self.misspelled_words:
                 for sentence in range(len(self.sentences)):
                     if word in self.sentences[sentence]:
-                        result += f'\nFor "{word}" in the following sentence: \n{self.sentences[sentence]}\n'
+                        result += f'\nFor "{word}" in the following sentence: ' \
+                                  f'\n{self.sentences[sentence]}\n'
+                        result += 'Did you mean any of the following words: \n'
+                        result += ', '.join(self.corrections[word])
+                        result += '\n'
+                    elif word[:-1] + '\'' + word[-1] in self.sentences[sentence]:
+                        result += f'\nFor "{word}" in the following sentence: ' \
+                                  f'\n{self.sentences[sentence]}\n'
                         result += 'Did you mean any of the following words: \n'
                         result += ', '.join(self.corrections[word])
                         result += '\n'
