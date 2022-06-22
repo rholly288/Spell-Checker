@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # Created By: Rachel Holly
 # Created Date: 6/10/2022
-# Last Edited: 6/18/2022
+# Last Edited: 6/21/2022
 # Version: 1.08
 # ----------------------------------------------------------------------------------------------------------------------
 """ This module spell checks a given word by finding different spelling mistakes and cross-checking the corrected words
@@ -38,7 +38,7 @@ def transposes(word):
     :return: a set of words with all the possible single transposes
     """
     # Establish an empty set to store words
-    transposes = set()
+    transpose = set()
 
     # Split word into a list of characters
     split = [char for char in word]
@@ -49,11 +49,11 @@ def transposes(word):
         split[i], split[i + 1] = split[i + 1], split[i]
 
         # Convert list back into string and append to list
-        transposes.add(''.join(split))
+        transpose.add(''.join(split))
 
         # Undo the transpose for the next index
         split[i + 1], split[i] = split[i], split[i + 1]
-    return transposes
+    return transpose
 
 
 def letter_swap(word):
@@ -71,8 +71,8 @@ def letter_swap(word):
 
     # Replace every letter in the word with every letter of the alphabet and add to set
     for char in word:
-        for l in letters:
-            new = word.replace(char, l)
+        for le in letters:
+            new = word.replace(char, le)
             swaps.add(new)
     return swaps
 
@@ -92,8 +92,8 @@ def add_letter(word):
 
     # Individually add every letter in the alphabet next to every letter in the word and add new word to the set.
     for char in word:
-        for l in letters:
-            new = word.replace(char, char + l)
+        for le in letters:
+            new = word.replace(char, char + le)
             added.add(new)
     return added
 
@@ -177,7 +177,7 @@ def all_mistakes(word):
     """
     # Create set of all errors by finding the union of all the sets of corrections
     all_errors = transposes(word) | letter_swap(word) | add_letter(word) | del_letter(word) | duplicate_letters(word) \
-                 | capitalization(word)
+        | capitalization(word)
     return all_errors
 
 
