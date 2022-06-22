@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # Created By: Rachel Holly
 # Created Date: 6/17/2022
-# Last Edited: 6/18/2022
+# Last Edited: 6/21/2022
 # Version: 1.01
 # ----------------------------------------------------------------------------------------------------------------------
 """ This function creates a set of all the words in the English language by merging two data sets. One, sourced from
@@ -24,8 +24,8 @@ def known_words(file_name):
 
     # Open dictionary.txt and create a set of the words in the file
     with open(file_name, 'r') as f:
-        dict = [word.rstrip() for word in f]
-        words_1 = set(dict)
+        dic = [word.rstrip() for word in f]
+        words_1 = set(dic)
 
     # Find the union of the set created with the set of words from the nltk library
     words_2 = set(words.words())
